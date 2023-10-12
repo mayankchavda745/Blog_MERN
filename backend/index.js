@@ -1,9 +1,13 @@
 import express from "express";
 import connectToMongo from "./config/db.js";
+import cors from "cors"
 import authRoutes from "./routes/blog.js"
 const app = express();
 
 connectToMongo();
+
+app.use(cors());
+app.use(express.json());
 
 app.get('/',(req,res)=>{
     res.send('Hello');    
